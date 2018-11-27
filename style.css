@@ -1,0 +1,296 @@
+html,
+body {
+    /* Height and width fallback for older browsers. */
+    height: 100%;
+    width: 100%;
+    /* Remove any browser-default margins. */
+    margin: 0;
+}
+
+#main,
+#accountnumbermain,
+#success {
+
+    width: 100%;
+    height: 100%;
+    background-color: #224191;
+    position: relative;
+
+}
+
+#accountnumbermain,
+#success {
+    text-align: center;
+}
+
+.navtable {
+    width: 100%;
+    font-size: 30x;
+    color: white;
+}
+
+.redbutton {
+    background-color: #ed116c;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+
+#accountnumbermain table,
+    {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.centertable {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: Arial;
+}
+
+.suggestionsrow {
+    background-color: #30b0e6;
+    color: white;
+}
+
+#accountnumberinput {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 45px;
+    color: black;
+}
+
+#optionstable {
+    color: white;
+    font-size: 20px;
+    font-family: Arial;
+    border-spacing: 15px;
+
+
+
+}
+
+#suggestionstable {
+    border-spacing: none;
+}
+
+#lefthandside {
+    float: left;
+    text-align: center;
+    width: 25%;
+    height: 100%;
+    color: white;
+    font-family: arial;
+    display: flex;
+    align-items: center;
+
+}
+
+#lefthandside table {}
+
+#optionstable tr {
+    height: 220px;
+}
+
+#optionstable tr td {
+    background-color: #30b0e6;
+    width: 220px;
+
+}
+
+#main h1,
+#accountinput h1,
+#accountnumbermain h1 {
+    text-align: center;
+    font-family: arial;
+    font-size: 60px;
+    color: White;
+
+
+}
+
+#withdrawinput {
+    width: 300px;
+    height: 60px;
+}
+
+.bluebutton {
+    background-color: #30b0e6;
+    font-family: arial;
+    font-size: 20px;
+    color: white;
+    width: 100px;
+    height: 100px;
+
+    ;
+
+}
+
+#secondheading {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    font-family: arial;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+#rightarrow {
+    width: 60px;
+    height: 60px;
+    margin-top: 80px;
+}
+
+#entercard {
+    position: absolute;
+    bottom: 50px;
+    right: 25px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    background-color: #30b0e6;
+    color: white;
+    font-family: arial;
+}
+
+.smallheading {
+    font-size: 15px;
+    color: #30b0e6;
+    float: left;
+}
+
+button {
+    width: 140px;
+    height: 40px;
+    border: 5px;
+    border-radius: 4px;
+
+}
+
+#delete {
+    background-color: red;
+    color: white;
+}
+
+#clear {
+    background-color: yellow;
+    color: white;
+}
+
+#enter {
+    background-color: green;
+    color: white;
+}
+
+#accountnumberinput {
+    width: 500px;
+    height: 30px;
+
+}
+
+#righthandside {
+    float: right;
+    width: 75%;
+    height: 100%;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.greenbutton {
+    background-color: #42f474;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.redbutton {
+    background-color: #ed116c;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    color: white;
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #224191;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
