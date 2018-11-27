@@ -4,7 +4,6 @@
 <head>
     <title>Assignment 2</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 
 
@@ -13,56 +12,56 @@
     <div id="accountnumbermain">
         <h1>Please Enter Your 4 Digit PIN Password:</h1>
         <div id="accountinput">
-            <input id="accountnumberinput" type="text" placeholder="- - - -">
+            <input id="passinput" class="numberinput" type="text" placeholder="- - - -">
             <table class="centertable">
                 <tr>
                     <td>
-                        <button class="bluebutton">1</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">1</button>
                     </td>
                     <td>
-                        <button class="bluebutton">2</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">2</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">3</button>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="bluebutton">4</button>
-                    </td>
-                    <td>
-                        <button class="bluebutton">5</button>
-
-                    </td>
-                    <td>
-                        <button class="bluebutton">6</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">3</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">7</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">4</button>
                     </td>
                     <td>
-                        <button class="bluebutton">8</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">5</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">9</button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">6</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">
+                        <button onclick="pinnumberinput(this)" class="bluebutton">7</button>
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">8</button>
+
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">9</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">
                             <</button> </td> <td>
-                                <button class="bluebutton">0</button>
+                                <button onclick="pinnumberinput(this)" class="bluebutton">0</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">></button>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">></button>
 
                     </td>
                 </tr>
@@ -75,7 +74,20 @@
         </div>
 
     </div>
+    <script>
+        var pin = "";
 
+        function pinnumberinput(x) {
+            if (pin.length < 4) {
+
+
+                pin += x.innerHTML;
+                document.getElementById('passinput').value = pin;
+            } else {
+                alert("MAXIMUN DIGITS EXCEEDED");
+            }
+        }
+    </script>
 
 </body>
 
