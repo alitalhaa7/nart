@@ -4,7 +4,6 @@
 <head>
     <title>Assignment 2</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 
@@ -15,15 +14,15 @@
         <table class="navtable">
             <tr>
 
-                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
-                <td style="width:20%;text-align:right;font-size:15px;font-family: Arial;"> SIGN OUT</td>
+                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> <a style="text-decoration:none;color:white;" href="./success.html">NART</a></td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
         </table>
 
 
-        <table class="navtable">
+        <!--  <table class="navtable">
             <tr>
 
                 <td style="width:40%;text-align:left;"> <button class="redbutton">RETURN </button>
@@ -35,7 +34,7 @@
 
             </tr>
 
-        </table>
+        </table>-->
 
         <!-- <h1>Choose Account: <select style="width:100px;height:30px;">
                 <option value="one">Savings</option>
@@ -43,27 +42,27 @@
                 <option value="three">Student Account</option>
                 <option value="four">Other</option>
             </select></h1>-->
-        <div id="lefthandside" style="display:inline-block;align-items:stretch">
-            <table class="centertable">
+        <div id="lefthandside">
+            <table class="centertable" id="moneyTable">
                 <tr>
                     <td>
                         <h1 style="font-size:20px;"> Quick Withdraw</h1>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="twenty.jpg" width="250px">
+                    <td id="twenty" onclick="moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="twenty.jpg" width="200px">
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="fifty.jpg" width="250px">
+                    <td id="fifty" onclick=" moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="fifty.jpg" width="200px">
 
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="hunny.jpg" width="250px;">
+                    <td id="hunny" onclick="moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="hunny.jpg" width="200px;">
 
                     </td>
 
@@ -76,59 +75,66 @@
             <table style="margin-left:auto;margin-right:auto;">
                 <tr>
                     <td>
-                        <button class="bluebutton">1</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">1</button>
                     </td>
                     <td>
-                        <button class="bluebutton">2</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">2</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">3</button>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="bluebutton">4</button>
-                    </td>
-                    <td>
-                        <button class="bluebutton">5</button>
-
-                    </td>
-                    <td>
-                        <button class="bluebutton">6</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">3</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">7</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">4</button>
                     </td>
                     <td>
-                        <button class="bluebutton">8</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">5</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">9</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">6</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">
-                            <</button> </td> <td>
-                                <button class="bluebutton">0</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">7</button>
+                    </td>
+                    <td>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">8</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">></button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">9</button>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange">Reset
+                            <br>
+                            <img src="clear.png" style=" width:30%">
+
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">0</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteone()" class="bluebutton" style="background-color: red">Delete
+                            <br>
+                            <img src="backspace.png" style=" width:30%">
+                        </button>
                     </td>
                 </tr>
             </table>
 
+
         </div>
-        <button id="withdraw" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;">WITHDRAW</button>
+        <button id="withdraw" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:absolute;left:0;">WITHDRAW</button>
 
 
     </div>
@@ -143,14 +149,126 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h1>Chequing <br> Withdraw $50? </h1>
+            <h1>Chequing <br> Withdraw <span id="withdrawamount"></span> </h1>
             <br>
-            <button class="greenbutton" style="display:inline"> YES </button>
-            <button class="redbutton" style="display:inline"> NO </button>
+            <button onclick="closeModal(this)" class="greenbutton" style="display:inline"> YES </button>
+            <button onclick="closeModal(this)" class="redbutton" style="display:inline"> NO </button>
 
         </div>
 
     </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        var withdrawamount = "";
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("withdraw");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            console.log(withdrawamount);
+            modal.style.display = "block";
+            document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        function closeModal() {
+            var urlstring = "";
+            if (this.class = "greenbutton") {
+                if (savingsamount != undefined) {
+                    savingsamount = (parseInt(savingsamount) - withdrawamount).toString();
+                    urlstring = "./success.html?savings=" + savingamount;
+                } else if (chequingsamount != undefined) {
+                    chequingsamount = (parseInt(chequingsamount) - withdrawamount).toString();
+                    urlstring = "./success.html?chequings=" + chequingsamount;
+
+                }
+
+            }
+
+
+            modal.style.display = "none";
+            window.location.href = urlstring;
+
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var savingsamount = getParameterByName('savings'); // "lorem"
+        var chequingsamount = getParameterByName('chequings'); // "" (present with empty value)
+
+
+
+
+        function moneyClick(x) {
+            console.log("ASDFASDFASDF");
+            document.getElementById("twenty").style.backgroundColor = "#224191";
+            document.getElementById("fifty").style.backgroundColor = "#224191";
+            document.getElementById("hunny").style.backgroundColor = "#224191";
+            x.style.backgroundColor = "#30b0e6";
+
+            switch (x.id) {
+                case "twenty":
+                    withdrawamount = "20";
+                    break;
+                case "fifty":
+                    withdrawamount = "50";
+                    break;
+                case "hunny":
+                    withdrawamount = "100";
+                    break;
+            }
+            console.log(withdrawamount);
+        }
+
+
+
+        function withdrawamountinput(x) {
+            document.getElementById("twenty").style.backgroundColor = "#224191";
+            document.getElementById("fifty").style.backgroundColor = "#224191";
+            document.getElementById("hunny").style.backgroundColor = "#224191";
+            if (withdrawamount.length < 5) {
+                withdrawamount += x.innerHTML;
+                document.getElementById('withdrawinput').value = withdrawamount;
+            }
+        }
+
+        function deleteone() {
+            withdrawamount = withdrawamount.slice(0, -1);
+            document.getElementById('withdrawinput').value = withdrawamount;
+
+        }
+
+        function deleteall() {
+            withdrawamount = "";
+            document.getElementById('withdrawinput').value = withdrawamount;
+
+        }
+    </script>
 
 </body>
 
