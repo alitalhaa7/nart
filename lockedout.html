@@ -11,23 +11,33 @@
 <body>
 
     <div id="main">
+        <table class="navtable">
+            <tr>
+                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
+            </tr>
+        </table>
         <br>
         <h1>Your account has been Locked</h1>
 
         <img src="lock.png" class="center">
-      
-        <div id="secondheading">
-            <h2 style="display:inline-block;">To unlock please call 1-800-221-1111</h2>
-        </div>
 
+        <div id="secondheading">
+
+            <h2 style="display:inline-block;">To unlock please call 1-800-221-1111</h2>
+            <br>
+             <button onclick="backhome()" class="bluebutton" style= "height:60px;">OK</button>
+        </div>
+        
     </div>
+
+   <script>
+        function backhome() {
+            window.location.href = "./index.html";
+
+        }
+    </script>
 
 
 </body>
-
-
-
-
-
 
 </html>

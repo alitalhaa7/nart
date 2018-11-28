@@ -11,12 +11,17 @@
 <body>
 
     <div id="accountnumbermain">
+          <table class="navtable">
+            <tr>
+                <td onclick = "goto('./index.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> BACK</td>
+            </tr>
+        </table>
         <br>
         <h1>Please Enter Your 10 Digit Account Number</h1>
         <div id="accountinput">
             <input id="accountnumberinput" class="numberinput" style="letter-spacing:3px;" maxlength="10" type="text" pattern="\d{10}">
             <br>
-            <p style="display:none;" id="incorrectmessage">Incorrect Account Number!</p>
+            <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="incorrectmessage">Incorrect Account Number!</p>
             <table class="centertable">
                 <tr>
                     <td>
@@ -55,25 +60,36 @@
                     <td>
                         <button onclick="accnumberinput(this)" class="bluebutton">9</button>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick="accnumberinput(this)" class="bluebutton">
-                            <</button> </td> <td>
-                                <button onclick="accnumberinput(this)" class="bluebutton">0</button>
+                              <tr>
+                    <td>            
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange" >Reset
+                            <br>
+                            <img src="clear.png" style=" width:30%">
 
+                        </button>
+                    </td> 
+                    <td>
+                        <button onclick="accnumberinput(this)" class="bluebutton">0</button>
                     </td>
                     <td>
-                        <button onclick="accnumberinput(this)" class="bluebutton">></button>
-
+                        <button onclick="deleteone()"  class="bluebutton" style="background-color: red">Delete  
+                            <br> 
+                            <img src="backspace.png"  style=" width:30%">
+                        </button>
                     </td>
                 </tr>
             </table>
+            <table class="centertable">
+                <tr>
+                    <td>
+                        <button onclick="submit()" class=enterbutton>Enter</button>
+                    </td>
+                </tr>
+                </table>
 
-            <button onclick="deleteone()"id="delete">Delete</button>
+            <!-- <button onclick="deleteone()"id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
-            <button onclick="submit()" id="enter">Enter</button>
+            <button onclick="submit()" id="enter">Enter</button> -->
             <br>
             <br>
         </div>
@@ -97,7 +113,7 @@
         function deleteall() {
             accnumber = "";
             document.getElementById('accountnumberinput').value = accnumber;
-            document.getElementById("incorrectmessage").style = "display:none";
+            document.getElementById("incorrectmessage").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
 
         }
 
@@ -105,9 +121,14 @@
             if (accnumber === "1234567890") {
                 window.location.href = './pinnumber.html';
             } else {
-                document.getElementById("incorrectmessage").style = "color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
+                document.getElementById("incorrectmessage").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
             }
         }
+        
+        function goto(x){
+            window.location.href = x;
+        }
+
     </script>
 
 </body>
