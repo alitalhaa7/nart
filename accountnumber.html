@@ -13,7 +13,9 @@
     <div id="accountnumbermain">
         <h1>Please Enter Your 10 Digit Account Number</h1>
         <div id="accountinput">
-            <input id="accountnumberinput" class="numberinput" type="text">
+            <input id="accountnumberinput" class="numberinput" style="letter-spacing:3px;" maxlength="10" type="text" pattern="\d{10}">
+            <br>
+            <p style="color:red;display:none;" id="incorrectmessage">Incorrect Account Number!</p>
             <table class="centertable">
                 <tr>
                     <td>
@@ -69,8 +71,8 @@
             </table>
 
             <button id="delete">Delete</button>
-            <button id="clear">Clear</button>
-            <button id="enter">Enter</button>
+            <button onclick="deleteall()" id="clear">Clear</button>
+            <button onclick="submit()" id="enter">Enter</button>
 
         </div>
 
@@ -80,12 +82,23 @@
 
         function accnumberinput(x) {
             if (accnumber.length < 10) {
-
-
                 accnumber += x.innerHTML;
                 document.getElementById('accountnumberinput').value = accnumber;
+            }
+        }
+
+
+        function deleteall() {
+            accnumber = "";
+            document.getElementById('accountnumberinput').value = accnumber;
+
+        }
+
+        function submit() {
+            if (accnumber === "1234567890") {
+                window.location.href = './success.html';
             } else {
-                alert("MAXIMUN DIGITS EXCEEDED");
+                document.getElementById("incorrectmessage").style = "display:block;color:red;"
             }
         }
     </script>

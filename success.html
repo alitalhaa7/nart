@@ -12,11 +12,11 @@
 
     <div id="success">
 
-        <table id="navtable">
+        <table class="navtable">
             <tr>
 
                 <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
-                <td style="width:20%;text-align:right;font-size:15px;font-family: Arial;"> SIGN OUT</td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
@@ -55,12 +55,13 @@
         <div id="righthandside">
             <table id="optionstable" class="centertable">
                 <tr>
-                    <td>WITHDRAW</td>
-                    <td>DEPOSIT</td>
+                    <td onclick="goto('./withdraw.html')">WITHDRAW <br><img src="withdraw.png" width="50px;"> </td>
+
+                    <td>DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
                 </tr>
                 <tr>
-                    <td>TRANSFER HISTORY</td>
-                    <td>CHANGE PIN</td>
+                    <td>TRANSFER HISTORY <img src="history.png" width="50px;"></td>
+                    <td>CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
                 </tr>
 
             </table>
@@ -72,8 +73,9 @@
                     </td>
                 </tr>
                 <tr style="height:60px;background-color:#ed116c" class="suggestionsrow">
-                    <td style="width:200px;text-align:left;">$50<td>
-                    <td style="width:150px;text-align:right;">Quick Withdraw<td>
+                    <td>
+                        <button class="redbutton" style="width:200px; height:50px; margin:0;text-align:left;">$50</button>
+                        <button class="redbutton" style="width:200px; height:50px;text-align:right;">Quick Draw</button> </td>
                 </tr>
 
             </table>
@@ -84,7 +86,12 @@
 
     </div>
 
+    <script>
+        function goto(x) {
+            window.location.href = x;
 
+        }
+    </script>
 </body>
 
 
