@@ -123,7 +123,8 @@
         }
 
         function submit() {
-            if (pin === "1234") {
+            var correctpin = window.localStorage.getItem("pinvalue");
+            if (pin === correctpin) {
                 window.location.href = "./success.html";
             } else if (count_incorrect === 0) {
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c"

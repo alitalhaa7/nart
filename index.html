@@ -9,7 +9,6 @@
 
 
 <body>
-
     <div id="main">
         <br>
         <h1>WELCOME TO THE BANK OF NART</h1>
@@ -21,14 +20,24 @@
 
         <!--   <input id="entercard" type="text" placeholder="Manually Enter Card Number"></input>-->
         <a href="accountnumber.html">
-            <button id="entercard" style="width:200px;">Manually Enter Card Number</button>
+            <button onclick="setvariables()"id="entercard" style="width:200px;">Manually Enter Card Number</button>
         </a>
 
     </div>
 
 
-</body>
 
+    <script>
+        function setvariables(){
+            if (localStorage.getItem("pinvalue") === null || localStorage.getItem("cardvalue") === null) {
+                window.localStorage.setItem("pinvalue","1234");
+                window.localStorage.setItem("cardvalue","1234567890");
+            }else{
+
+            }
+        }
+        
+    </script>
 
 
 

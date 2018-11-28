@@ -118,7 +118,9 @@
         }
 
         function submit() {
-            if (accnumber === "1234567890") {
+            var correctcard = window.localStorage.getItem('cardvalue');
+            console.log(correctcard);
+            if (accnumber === correctcard) {
                 window.location.href = './pinnumber.html';
             } else {
                 document.getElementById("incorrectmessage").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"

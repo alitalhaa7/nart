@@ -99,7 +99,7 @@
     </div>
     <script>
         var pin = "";
-        var newpin= "2345"
+        var newpin=  window.localStorage.getItem("pinvalue_change");
         function pinnumberinput(x) {
             if (pin.length < 4) {
 
@@ -124,6 +124,7 @@
 
         function submit() {
             if (pin === newpin) {
+                window.localStorage.setItem("pinvalue",newpin);
                 window.location.href = "./changepin_success.html";
             } else
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
