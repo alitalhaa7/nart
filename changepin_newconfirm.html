@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Assignment 2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+<body>
+
+
+    <div id="changepin_entercurrent">
+        <table class="navtable">
+            <tr>
+                <td onclick = "goto('./changepin_new.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;BACK</td>
+            </tr>
+        </table>
+        <br>
+        <h1>Please Re-Enter Your New 4 Digit PIN:</h1>
+        <div id="accountinput">
+            <input id="passinput" class="numberinput" maxlength="4" type="password" placeholder="- - - -">
+        <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="incorrectpin">PIN does not match! Try Again.</p>
+            
+            <table class="centertable">
+                <tr>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">1</button>
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">2</button>
+
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">3</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">4</button>
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">5</button>
+
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">6</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">7</button>
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">8</button>
+
+                    </td>
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">9</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>            
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange" >Reset
+                            <br>
+                            <img src="clear.png" style=" width:30%">
+
+                        </button>
+                    </td> 
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">0</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteone()"  class="bluebutton" style="background-color: red">Delete  
+                            <br> 
+                            <img src="backspace.png"  style=" width:30%">
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <table class="centertable">
+                <tr>
+                    <td>
+                        <button onclick="submit()" class=enterbutton>Enter</button>
+                    </td>
+                </tr>
+                </table>
+
+            <!-- <button onclick="deleteone()" id="delete">Delete</button>
+            <button onclick="deleteall()" id="clear">Clear</button>
+            <button onclick="submit()" id="enter">Enter</button> -->
+            <br>
+            <br>
+        </div>
+
+    </div>
+    <script>
+        var pin = "";
+        var newpin= "2345"
+        function pinnumberinput(x) {
+            if (pin.length < 4) {
+
+
+                pin += x.innerHTML;
+                document.getElementById('passinput').value = pin;
+            }
+        }
+
+        function deleteone() {
+            pin = pin.slice(0, -1);
+            document.getElementById('passinput').value = pin;
+
+        }       
+        function deleteall() {
+            pin = "";
+            document.getElementById('passinput').value = pin;
+           // document.getElementById("incorrectpin").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+
+
+        }
+
+        function submit() {
+            if (pin === newpin) {
+                window.location.href = "./changepin_success.html";
+            } else
+                document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+                deleteall();
+        }
+
+
+        function goto(x){
+            window.location.href = x;
+        }
+
+    </script>
+
+</body>
+
+
+
+
+
+
+</html>

@@ -13,7 +13,7 @@
     <div id="accountnumbermain">
         <table class="navtable">
             <tr>
-                <td onclick = "goto('./index.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> BACK</td>
+                <td onclick = "goto('./accountnumber.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;BACK</td>
             </tr>
         </table>
         <br>
@@ -117,7 +117,7 @@
         function deleteall() {
             pin = "";
             document.getElementById('passinput').value = pin;
-            document.getElementById("incorrectpin").style = "display:none";
+           // document.getElementById("incorrectpin").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
 
 
         }
@@ -127,9 +127,11 @@
                 window.location.href = "./success.html";
             } else if (count_incorrect === 0) {
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c"
+                deleteall();
                 count_incorrect++;
             } else if (count_incorrect === 1) {
                 document.getElementById("incorrectpin").innerHTML = "Incorrect Pin Number! 1 attempt left";
+                deleteall();
                 count_incorrect++;
             } else{
                 window.location.href = "./lockedout.html";
