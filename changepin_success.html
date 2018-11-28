@@ -19,20 +19,36 @@
         <br>
         <h1>Your PIN has been successfully changed</h1>
 
-        <img src="checkmark.png" style= "width:30%;height:400px" class="center">
+        <img src="checkmark.png" style="width:30%;height:400px" class="center">
 
         <div id="secondheading">
-            
+
             <h2 style="display:inline-block;">Click OK to go back to Main Menu</h2>
             <br>
-             <button onclick="backhome()" class="bluebutton" style= "height:60px;">OK</button>
+            <button onclick="backhome()" class="bluebutton" style="height:60px;">OK</button>
         </div>
-        
+
     </div>
 
-   <script>
+    <script>
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var savings = getParameterByName('savings'); // "lorem"
+        var chequings = getParameterByName('chequings'); // "" (present with empty value)
+        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
+
         function backhome() {
-            window.location.href = "./success.html";
+                    var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+
+            window.location.href = "./success.html"+accountstring;
 
         }
     </script>

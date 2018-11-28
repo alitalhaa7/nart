@@ -183,22 +183,24 @@
         }
 
         function closeModal() {
-            var urlstring = "";
+            var teststring = "";
             if (this.class = "greenbutton") {
-                if (savingsamount != undefined) {
+                if (accounttype == "false") {
+
                     savingsamount = (parseInt(savingsamount) - withdrawamount).toString();
-                    urlstring = "./success.html?savings=" + savingamount;
-                } else if (chequingsamount != undefined) {
+
+                } else if (accounttype == "true") {
                     chequingsamount = (parseInt(chequingsamount) - withdrawamount).toString();
-                    urlstring = "./success.html?chequings=" + chequingsamount;
-
                 }
-
+                teststring = "./success.html?savings=" + savingsamount + "&chequings=" +
+                    chequingsamount;
             }
 
 
+            console.log(teststring);
+            console.log(savingsamount);
             modal.style.display = "none";
-            window.location.href = urlstring;
+            window.location.href = teststring;
 
         }
 
@@ -220,7 +222,7 @@
         }
         var savingsamount = getParameterByName('savings'); // "lorem"
         var chequingsamount = getParameterByName('chequings'); // "" (present with empty value)
-
+        var accounttype = getParameterByName("accounttype");
 
 
 

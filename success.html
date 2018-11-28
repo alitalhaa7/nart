@@ -17,7 +17,7 @@
             <tr>
 
                 <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> <a style="text-decoration:none;color:white;" href="./success.html">NART</a></td>
-                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
+                <td onclick="goto('./index.html') " style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td>TRANSFER HISTORY <img src="history.png" width="50px;"></td>
-                    <td>CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
+                    <td onclick="goto('./changepin.html')">CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
                 </tr>
 
             </table>
@@ -90,6 +90,10 @@
     <script src="script.js"></script>
     <script>
         function goto(x) {
+            if (x === "./changepin.html" || x === "./index.html") {
+                accountstring = "chequings=" + chequings + "&savings=" + savings + "&correctpin=" + correctpin;
+            }
+
             window.location.href = x + "?" + accountstring;
 
         }
@@ -100,13 +104,15 @@
             document.getElementById("savings").style.backgroundColor = "#224191";
             x.style.backgroundColor = "#30b0e6";
             x.style.color = "white";
+            accountstring = "chequings=" + chequings + "&savings=" + savings + "&correctpin=" + correctpin;
+
             if (x.id === "chequings") {
                 document.getElementById("chequingsheading").style.color = "white";
-                accountstring = "chequings=" + chequings;
+                accountstring += "&accounttype=true";
             } else if (x.id === "savings") {
                 document.getElementById("savingsheading").style.color = "white";
                 document.getElementById("chequingsheading").style.color = "#30b0e6";
-                accountstring = "savings=" + savings;
+                accountstring += "&accounttype=false";
 
 
 
@@ -125,6 +131,7 @@
         }
         var savings = getParameterByName('savings'); // "lorem"
         var chequings = getParameterByName('chequings'); // "" (present with empty value)
+        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
 
 
         document.getElementById("chequingsfill").innerHTML = "$" + chequings;
