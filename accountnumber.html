@@ -120,9 +120,8 @@
 
         function submit() {
             if (accnumber === "1234567890") {
-                            var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
-
-                window.location.href = './pinnumber.html';
+                var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+                window.location.href = './pinnumber.html' + accountstring;
             } else {
                 document.getElementById("incorrectmessage").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
                 deleteall();
@@ -131,7 +130,7 @@
         }
 
         function goto(x) {
-            var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+            //var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
 
             window.location.href = x + accountstring;
         }
@@ -147,7 +146,7 @@
         }
         var savings = getParameterByName('savings'); // "lorem"
         var chequings = getParameterByName('chequings'); // "" (present with empty value)
-        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
+        var correctpin = getParameterByName('pin'); // "" (present with empty value)
     </script>
 
 </body>

@@ -134,13 +134,16 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-        var correctpin = getParameterByName('pin'); // "lorem"
-
+        var savings = getParameterByName('savings'); // "lorem"
+        var chequings = getParameterByName('chequings'); // "" (present with empty value)
+        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
 
         function submit() {
             console.log(correctpin);
             if (pin === correctpin) {
-                window.location.href = "./success.html?savings=5000&chequings=1000&correctpin=" + pin;
+                var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+
+                window.location.href = "./success.html" + accountstring;
             } else if (count_incorrect === 0) {
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c"
                 deleteall();

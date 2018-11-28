@@ -22,6 +22,7 @@
         </table>
 
 
+
         <!--  <table class="navtable">
             <tr>
 
@@ -71,6 +72,13 @@
 
         </div>
         <div id="righthandside">
+            <h1> Account</h1> <select id="accountselection" style="width:100px;height:30px;">
+                <option>Savings</option>
+                <option>Chequings</option>
+
+            </select>
+
+            <br>
             <input type="text" id="withdrawinput">
             <table style="margin-left:auto;margin-right:auto;">
                 <tr>
@@ -134,7 +142,7 @@
 
 
         </div>
-        <button id="withdraw" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:absolute;left:0;">WITHDRAW</button>
+        <button onclick="withdrawfunc()" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:absolute;left:0;">WITHDRAW</button>
 
 
     </div>
@@ -149,7 +157,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h1>Chequing <br> Withdraw <span id="withdrawamount"></span> </h1>
+            <h1> <span id="accountvar"></span> <br> Withdraw <span id="withdrawamount"></span> </h1>
             <br>
             <button onclick="closeModal(this)" class="greenbutton" style="display:inline"> YES </button>
             <button onclick="closeModal(this)" class="redbutton" style="display:inline"> NO </button>
@@ -165,22 +173,27 @@
         var modal = document.getElementById('myModal');
 
         // Get the button that opens the modal
-        var btn = document.getElementById("withdraw");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-            console.log(withdrawamount);
-            modal.style.display = "block";
-            document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
-        }
+
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
         }
+
+
+        if (accounttype === "true") {
+            document.getElementById("#accountselection").selectedIndex = "0";
+
+        } else {
+            document.getElementById("#accountselection").selectedIndex = "1";
+
+        }
+
+
 
         function closeModal() {
             var teststring = "";
@@ -192,14 +205,16 @@
                 } else if (accounttype == "true") {
                     chequingsamount = (parseInt(chequingsamount) - withdrawamount).toString();
                 }
-                teststring = "./success.html?savings=" + savingsamount + "&chequings=" +
-                    chequingsamount;
+                teststring = "./withdraw_success.html?savings=" + savingsamount + "&chequings=" + "&correctpin=" + correctpin;
+                chequingsamount;
             }
 
 
             console.log(teststring);
             console.log(savingsamount);
             modal.style.display = "none";
+
+
             window.location.href = teststring;
 
         }
@@ -223,6 +238,8 @@
         var savingsamount = getParameterByName('savings'); // "lorem"
         var chequingsamount = getParameterByName('chequings'); // "" (present with empty value)
         var accounttype = getParameterByName("accounttype");
+        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
+
 
 
 
@@ -244,12 +261,16 @@
                     withdrawamount = "100";
                     break;
             }
+
             console.log(withdrawamount);
         }
 
 
-
         function withdrawamountinput(x) {
+            if (document.getElementById("twenty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("fifty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("hunny").style.backgroundColor === "rgb(48, 176, 230)") {
+                withdrawamount = "";
+            }
+            console.log(document.getElementById("twenty").style.backgroundColor);
             document.getElementById("twenty").style.backgroundColor = "#224191";
             document.getElementById("fifty").style.backgroundColor = "#224191";
             document.getElementById("hunny").style.backgroundColor = "#224191";
@@ -269,6 +290,20 @@
             withdrawamount = "";
             document.getElementById('withdrawinput').value = withdrawamount;
 
+        }
+
+        function withdrawfunc() {
+
+            modal.style.display = "block";
+            console.log(withdrawamount);
+            document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
+            if (accounttype) {
+                document.getElementById("accountvar").innerHTML = "Chequings";
+
+            } else {
+                document.getElementById("accountvar").innerHTML = "Savings";
+
+            }
         }
     </script>
 
