@@ -13,9 +13,9 @@
         <br>
         <h1>Please Enter Your 4 Digit PIN Password:</h1>
         <div id="accountinput">
-            <input id="passinput" class="numberinput" maxlength="4" type="text" placeholder="- - - -">
-            <p style="display:none;" id="incorrectpin">Incorrect Pin Number!</p>
-
+            <input id="passinput" class="numberinput" maxlength="4" type="password" placeholder="- - - -">
+            <p style="visibility:hidden;" id="incorrectpin">Incorrect Pin Number! 2 attempts left</p>
+            
             <table class="centertable">
                 <tr>
                     <td>
@@ -57,22 +57,35 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <button onclick="pinnumberinput(this)" class="bluebutton">
-                            <</button> </td> <td>
-                                <button onclick="pinnumberinput(this)" class="bluebutton">0</button>
+                    <td>            
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange" >Reset
+                            <br>
+                            <img src="clear.png" style=" width:30%">
 
+                        </button>
+                    </td> 
+                    <td>
+                        <button onclick="pinnumberinput(this)" class="bluebutton">0</button>
                     </td>
                     <td>
-                        <button onclick="pinnumberinput(this)" class="bluebutton">></button>
-
+                        <button onclick="deleteone()"  class="bluebutton" style="background-color: red">Delete  
+                            <br> 
+                            <img src="backspace.png"  style=" width:30%">
+                        </button>
                     </td>
                 </tr>
             </table>
+            <table class="centertable">
+                <tr>
+                    <td>
+                        <button onclick="submit()" class=enterbutton>Enter</button>
+                    </td>
+                </tr>
+                </table>
 
-            <button id="delete">Delete</button>
+            <!-- <button onclick="deleteone()" id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
-            <button onclick="submit()" id="enter">Enter</button>
+            <button onclick="submit()" id="enter">Enter</button> -->
             <br>
             <br>
         </div>
@@ -80,7 +93,7 @@
     </div>
     <script>
         var pin = "";
-
+        var count_incorrect = 0;
         function pinnumberinput(x) {
             if (pin.length < 4) {
 
@@ -90,6 +103,11 @@
             }
         }
 
+        function deleteone() {
+            pin = pin.slice(0, -1);
+            document.getElementById('passinput').value = pin;
+
+        }       
         function deleteall() {
             pin = "";
             document.getElementById('passinput').value = pin;
@@ -101,10 +119,15 @@
         function submit() {
             if (pin === "1234") {
                 window.location.href = "./success.html";
-            } else {
-                document.getElementById("incorrectpin").style = "color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
-
-
+            } else if (count_incorrect === 0) {
+                document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c"
+                count_incorrect++;
+            } else if (count_incorrect === 1) {
+                document.getElementById("incorrectpin").innerHTML = "Incorrect Pin Number! 2 attempts left"
+                document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" 
+                count_incorrect++;
+            } else{
+                window.location.href = "./lockedout.html";
             }
         }
 

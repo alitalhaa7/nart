@@ -71,7 +71,7 @@
                 </tr>
             </table>
 
-            <button id="delete">Delete</button>
+            <button onclick="deleteone()"id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
             <button onclick="submit()" id="enter">Enter</button>
             <br>
@@ -89,7 +89,11 @@
             }
         }
 
+        function deleteone() {
+            accnumber = accnumber.slice(0, -1);
+            document.getElementById('accountnumberinput').value = accnumber;
 
+        }
         function deleteall() {
             accnumber = "";
             document.getElementById('accountnumberinput').value = accnumber;
@@ -99,7 +103,7 @@
 
         function submit() {
             if (accnumber === "1234567890") {
-                window.location.href = './success.html';
+                window.location.href = './pinnumber.html';
             } else {
                 document.getElementById("incorrectmessage").style = "color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
             }
