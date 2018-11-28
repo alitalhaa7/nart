@@ -10,9 +10,12 @@
 <body>
 
     <div id="accountnumbermain">
+        <br>
         <h1>Please Enter Your 4 Digit PIN Password:</h1>
         <div id="accountinput">
             <input id="passinput" class="numberinput" maxlength="4" type="text" placeholder="- - - -">
+            <p style="display:none;" id="incorrectpin">Incorrect Pin Number!</p>
+
             <table class="centertable">
                 <tr>
                     <td>
@@ -68,9 +71,10 @@
             </table>
 
             <button id="delete">Delete</button>
-            <button id="clear">Clear</button>
+            <button onclick="deleteall()" id="clear">Clear</button>
             <button onclick="submit()" id="enter">Enter</button>
-
+            <br>
+            <br>
         </div>
 
     </div>
@@ -86,13 +90,24 @@
             }
         }
 
+        function deleteall() {
+            pin = "";
+            document.getElementById('passinput').value = pin;
+            document.getElementById("incorrectpin").style = "display:none";
+
+
+        }
+
         function submit() {
             if (pin === "1234") {
                 window.location.href = "./success.html";
             } else {
+                document.getElementById("incorrectpin").style = "color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
+
 
             }
         }
+
     </script>
 
 </body>

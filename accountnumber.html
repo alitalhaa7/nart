@@ -11,11 +11,12 @@
 <body>
 
     <div id="accountnumbermain">
+        <br>
         <h1>Please Enter Your 10 Digit Account Number</h1>
         <div id="accountinput">
             <input id="accountnumberinput" class="numberinput" style="letter-spacing:3px;" maxlength="10" type="text" pattern="\d{10}">
             <br>
-            <p style="color:red;display:none;" id="incorrectmessage">Incorrect Account Number!</p>
+            <p style="display:none;" id="incorrectmessage">Incorrect Account Number!</p>
             <table class="centertable">
                 <tr>
                     <td>
@@ -73,7 +74,8 @@
             <button id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
             <button onclick="submit()" id="enter">Enter</button>
-
+            <br>
+            <br>
         </div>
 
     </div>
@@ -91,6 +93,7 @@
         function deleteall() {
             accnumber = "";
             document.getElementById('accountnumberinput').value = accnumber;
+            document.getElementById("incorrectmessage").style = "display:none";
 
         }
 
@@ -98,7 +101,7 @@
             if (accnumber === "1234567890") {
                 window.location.href = './success.html';
             } else {
-                document.getElementById("incorrectmessage").style = "display:block;color:red;"
+                document.getElementById("incorrectmessage").style = "color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
             }
         }
     </script>
