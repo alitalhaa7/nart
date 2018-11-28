@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Assignment 2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    #tableList table, 
+    #tableList td, 
+    #tableList th {
+    border: 2px solid white;
+}
+
+#tableList table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableList td {
+    height: 50px;
+    vertical-align: bottom;
+}
+</style>
+</head>
+
+
+<body>
+
+
+    <div id="changepin_entercurrent">
+        <table class="navtable">
+            <tr>
+                <td onclick = "goto('./success.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;NART</td>
+            </tr>
+        </table>
+        <br>
+        <h1>Transaction History</h1>
+        <div id="accountinput">
+            <table id= "tableList" class="centertable">
+  <tr>
+    <th>Time (yyyy/mm/dd)</th>
+    <th>Action</th>
+    <th>Account</th>
+    <th>Amount</th>
+    <th>Balance</th>
+  </tr>
+    <tr>
+    <td >2018/11/28</td>
+    <td>Withdraw</td>
+    <td>Chequing</td>
+    <td>$20</td>
+    <td>$980</td>
+  </tr>
+  <tr>
+    <td >2018/11/28</td>
+    <td>Deposit</td>
+    <td>Chequing</td>
+    <td>$20</td>
+    <td>$1000</td>
+  </tr>
+  <tr>
+    <td >2018/11/28</td>
+    <td>Transfer</td>
+    <td>Chequing to Savings</td>
+    <td>$150</td>
+    <td>$850</td>
+  </tr>
+  
+</table>
+    
+
+</body>
+
+<script>
+    function goto(x){
+            window.location.href = x;
+        }
+
+</script>
+
+</html>
