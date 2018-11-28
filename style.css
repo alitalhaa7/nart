@@ -30,7 +30,6 @@ body {
 }
 
 
-
 #accountnumbermain,
 #changepin_entercurrent,
 #success {
@@ -77,8 +76,8 @@ body {
     color: white;
 }
 
-input{
-  caret-color: rgb(0, 200, 0);
+input {
+    caret-color: rgb(0, 200, 0);
 }
 
 
@@ -108,14 +107,35 @@ input{
 #lefthandside {
     float: left;
     text-align: center;
-    width: 25%;
-    height: 100%;
+    width: 30%;
+    min-height: 100%;
     color: white;
     font-family: arial;
     display: flex;
     align-items: center;
     background-color: #224191;
     margin-top: 100px;
+
+}
+
+#withdraw-lefthandside {
+    float: left;
+    text-align: center;
+    width: 50%;
+    min-height: 100%;
+    color: white;
+    font-family: arial;
+    display: flex;
+    align-items: center;
+    background-color: #224191;
+    margin-top: 100px;
+}
+
+#withdraw-righthandside {
+    float: right;
+    width: 49%;
+    min-height: 100%;
+    background-color: #224191;
 
 }
 
@@ -134,7 +154,7 @@ input{
 #successlock h1,
 #accountinput h1,
 #accountnumbermain h1,
-#changepin_entercurrent h1{
+#changepin_entercurrent h1 {
     text-align: center;
     font-family: arial;
     font-size: 60px;
@@ -157,6 +177,7 @@ input{
     width: 100px;
     height: 100px;
 }
+
 .enterbutton {
     background-color: green;
     font-family: arial;
@@ -165,6 +186,7 @@ input{
     width: 310px;
     height: 80px;
 }
+
 .center {
     display: block;
     margin-left: auto;
@@ -173,6 +195,7 @@ input{
     height: 450px;
 
 }
+
 #secondheading {
     position: absolute;
     bottom: 100px;
@@ -235,8 +258,8 @@ button {
 
 #righthandside {
     float: right;
-    width: 75%;
-    height: 100%;
+    width: 70%;
+    min-height: 100%;
     background-color: #224191;
 
 }

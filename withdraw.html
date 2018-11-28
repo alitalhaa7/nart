@@ -8,7 +8,46 @@
 
 
 <body>
+    <style>
+        .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
 
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
     <div id="success">
 
         <table class="navtable">
@@ -21,30 +60,28 @@
 
         </table>
 
-
-
-        <!--  <table class="navtable">
+        <table class="navtable">
             <tr>
 
-                <td style="width:40%;text-align:left;"> <button class="redbutton">RETURN </button>
-                </td>
-                <td style="width:40%;text-align:left;"> CHEQUING $1000
+                <td>
+                    <div class="dropdown">
+                        <button style="width:250px;height:60px;" onclick="myFunction()" class="dropbtn">Chequings <span id="cheamount"></span> <img src="drop-down-arrow-01-512.png" width="20px;"></button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#home">Savings <span id="savamount"></span> <img src="drop-down-arrow-01-512.png" width="20px;"></a>
+
+                        </div>
+                    </div>
                 </td>
 
-                <td style="width:20%;text-align:right;font-size:15px;font-family: Arial;"> DOWN</td>
 
             </tr>
 
-        </table>-->
+        </table>
 
-        <!-- <h1>Choose Account: <select style="width:100px;height:30px;">
-                <option value="one">Savings</option>
-                <option value="two">Chequings</option>
-                <option value="three">Student Account</option>
-                <option value="four">Other</option>
-            </select></h1>-->
-        <div id="lefthandside">
-            <table class="centertable" id="moneyTable">
+
+
+        <div id="withdraw-lefthandside" style="border-right: 1px solid white;">
+            <table style="margin-left:300px;" id="moneyTable">
                 <tr>
                     <td>
                         <h1 style="font-size:20px;"> Quick Withdraw</h1>
@@ -71,16 +108,13 @@
             </table>
 
         </div>
-        <div id="righthandside">
-            <h1> Account</h1> <select id="accountselection" style="width:100px;height:30px;">
-                <option>Savings</option>
-                <option>Chequings</option>
 
-            </select>
+        <br>
+        <div id="withdraw-righthandside">
+            <h1 style=" font-size:20px;color:white;font-family:arial;margin-right:150px;">Custom Input</h1>
 
-            <br>
-            <input type="text" id="withdrawinput">
-            <table style="margin-left:auto;margin-right:auto;">
+            <input type="text" id="withdrawinput" style="margin-right:150px;">
+            <table style="margin-left:100px;;">
                 <tr>
                     <td>
                         <button onclick="withdrawamountinput(this)" class="bluebutton">1</button>
@@ -142,12 +176,12 @@
 
 
         </div>
-        <button onclick="withdrawfunc()" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:absolute;left:0;">WITHDRAW</button>
 
 
     </div>
 
     </div>
+    <button onclick="withdrawfunc()" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:relative;left:0;">WITHDRAW</button>
 
     <!-- Trigger/Open The Modal -->
 
@@ -185,13 +219,7 @@
         }
 
 
-        if (accounttype === "true") {
-            document.getElementById("#accountselection").selectedIndex = "0";
 
-        } else {
-            document.getElementById("#accountselection").selectedIndex = "1";
-
-        }
 
 
 
@@ -304,7 +332,34 @@
                 document.getElementById("accountvar").innerHTML = "Savings";
 
             }
+
+
+
         }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        var chequingamount = 1000;
+        var savingsamount = 5000;
+        document.getElementById("cheamount").innerHTML = "$" + chequingamount;
+        document.getElementById("savamount").innerHTML = "$" + savingsamount;
     </script>
 
 </body>

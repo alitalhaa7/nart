@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+s<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -127,13 +127,6 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-        var savings = getParameterByName('savings'); // "lorem"
-        var chequings = getParameterByName('chequings'); // "" (present with empty value)
-        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
-
-
-        document.getElementById("chequingsfill").innerHTML = "$" + chequings;
-        document.getElementById("savingsfill").innerHTML = "$" + savings;
     </script>
 </body>
 
