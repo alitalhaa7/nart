@@ -11,9 +11,9 @@
 <body>
 
     <div id="accountnumbermain">
-          <table class="navtable">
+        <table class="navtable">
             <tr>
-                <td onclick = "goto('./index.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;BACK</td>
+                <td onclick="goto('./index.html')" style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;BACK</td>
             </tr>
         </table>
         <br>
@@ -60,21 +60,21 @@
                     <td>
                         <button onclick="accnumberinput(this)" class="bluebutton">9</button>
 
-                              <tr>
-                    <td>            
-                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange" >Reset
+                <tr>
+                    <td>
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange">Reset
                             <br>
                             <img src="clear.png" style=" width:30%">
 
                         </button>
-                    </td> 
+                    </td>
                     <td>
                         <button onclick="accnumberinput(this)" class="bluebutton">0</button>
                     </td>
                     <td>
-                        <button onclick="deleteone()"  class="bluebutton" style="background-color: red">Delete  
-                            <br> 
-                            <img src="backspace.png"  style=" width:30%">
+                        <button onclick="deleteone()" class="bluebutton" style="background-color: red">Delete
+                            <br>
+                            <img src="backspace.png" style=" width:30%">
                         </button>
                     </td>
                 </tr>
@@ -85,7 +85,7 @@
                         <button onclick="submit()" class=enterbutton>Enter</button>
                     </td>
                 </tr>
-                </table>
+            </table>
 
             <!-- <button onclick="deleteone()"id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
@@ -110,6 +110,7 @@
             document.getElementById('accountnumberinput').value = accnumber;
 
         }
+
         function deleteall() {
             accnumber = "";
             document.getElementById('accountnumberinput').value = accnumber;
@@ -118,21 +119,34 @@
         }
 
         function submit() {
-            var correctcard = window.sessionStorage.getItem('cardvalue');
-            console.log(correctcard);
-            if (accnumber === correctcard) {
-                window.location.href = './pinnumber.html';
+            if (accnumber === "1234567890") {
+                var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+                window.location.href = './pinnumber.html' + accountstring;
             } else {
                 document.getElementById("incorrectmessage").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
                 deleteall();
 
             }
         }
-        
-        function goto(x){
-            window.location.href = x;
+
+        function goto(x) {
+            //var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
+
+            window.location.href = x + accountstring;
         }
 
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var savings = getParameterByName('savings'); // "lorem"
+        var chequings = getParameterByName('chequings'); // "" (present with empty value)
+        var correctpin = getParameterByName('pin'); // "" (present with empty value)
     </script>
 
 </body>

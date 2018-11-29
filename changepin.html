@@ -13,7 +13,7 @@
     <div id="changepin_entercurrent">
         <table class="navtable">
             <tr>
-                <td onclick = "goto('./success.html')"style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;NART</td>
+                <td onclick="goto('./success.html')" style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration:underline;"> &#8249;NART</td>
             </tr>
         </table>
         <br>
@@ -21,7 +21,7 @@
         <div id="accountinput">
             <input id="passinput" class="numberinput" maxlength="4" type="password" placeholder="- - - -">
             <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="incorrectpin">Incorrect Pin! Try Again.</p>
-            
+
             <table class="centertable">
                 <tr>
                     <td>
@@ -63,20 +63,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>            
-                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange" >Reset
+                    <td>
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange">Reset
                             <br>
                             <img src="clear.png" style=" width:30%">
 
                         </button>
-                    </td> 
+                    </td>
                     <td>
                         <button onclick="pinnumberinput(this)" class="bluebutton">0</button>
                     </td>
                     <td>
-                        <button onclick="deleteone()"  class="bluebutton" style="background-color: red">Delete  
-                            <br> 
-                            <img src="backspace.png"  style=" width:30%">
+                        <button onclick="deleteone()" class="bluebutton" style="background-color: red">Delete
+                            <br>
+                            <img src="backspace.png" style=" width:30%">
                         </button>
                     </td>
                 </tr>
@@ -87,7 +87,7 @@
                         <button onclick="submit()" class=enterbutton>Enter</button>
                     </td>
                 </tr>
-                </table>
+            </table>
 
             <!-- <button onclick="deleteone()" id="delete">Delete</button>
             <button onclick="deleteall()" id="clear">Clear</button>
@@ -99,7 +99,8 @@
     </div>
     <script>
         var pin = "";
-        var currentpin = window.sessionStorage.getItem("pinvalue");
+        var currentpin = correctpin;
+
         function pinnumberinput(x) {
             if (pin.length < 4) {
 
@@ -113,26 +114,46 @@
             pin = pin.slice(0, -1);
             document.getElementById('passinput').value = pin;
 
-        }       
+        }
+
         function deleteall() {
             pin = "";
             document.getElementById('passinput').value = pin;
-           // document.getElementById("incorrectpin").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            // document.getElementById("incorrectpin").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
 
 
         }
 
         function submit() {
-            if (pin === currentpin) {
-                window.location.href = "./changepin_new.html";
+            var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + pin;
+            console.log(pin);
+            console.log(correctpin);
+            if (pin === correctpin) {
+
+                window.location.href = "./changepin_new.html" + accountstring;
             } else
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
-                deleteall();
+            deleteall();
         }
 
-        function goto(x){
+        function goto(x) {
+            var accountstring = "?savings=" + savings + "&chequings=" + chequings + "&correctpin=" + correctpin;
             window.location.href = x;
         }
+
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var savings = getParameterByName('savings'); // "lorem"
+        var chequings = getParameterByName('chequings'); // "" (present with empty value)
+        var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
 
     </script>
 
