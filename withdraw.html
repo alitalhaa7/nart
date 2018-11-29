@@ -413,9 +413,14 @@
 
         function switchdropdownvalues() {
             var x = document.getElementById("dropdownalt").innerHTML;
+            var y = document.getElementById("savamount").innerHTML;
+            console.log(x);
+            console.log(y);
             document.getElementById("dropdownalt").innerHTML = document.getElementById("dropdownselection").innerHTML;
+            document.getElementById("savamount").innerHTML = document.getElementById("cheamount").innerHTML;
+            
             document.getElementById("dropdownselection").innerHTML = x;
-
+            document.getElementById("cheamount").innerHTML = y;
         }
 
     </script>

@@ -57,7 +57,7 @@
             <tr>
 
                 <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> <a style="text-decoration:underline;color:white;" href="./success.html">&#8249;NART</a></td>
-                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./endsession.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
@@ -403,9 +403,14 @@
 
         function switchdropdownvalues() {
             var x = document.getElementById("dropdownalt").innerHTML;
+            var y = document.getElementById("savamount").innerHTML;
+            console.log(x);
+            console.log(y);
             document.getElementById("dropdownalt").innerHTML = document.getElementById("dropdownselection").innerHTML;
+            document.getElementById("savamount").innerHTML = document.getElementById("cheamount").innerHTML;
+            
             document.getElementById("dropdownselection").innerHTML = x;
-
+            document.getElementById("cheamount").innerHTML = y;
         }
 
     </script>

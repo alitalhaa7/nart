@@ -57,7 +57,7 @@
             <tr>
 
                 <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> <a style="text-decoration:underline;color:white;" href="./success.html">&#8249;NART</a></td>
-                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./index.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./endsession.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
@@ -229,8 +229,40 @@
             console.log(x);
             console.log(x.innerHTML);
             if (x.innerHTML == "YES") {
-                console.log("asdfasdf");
+                var transactions = JSON.parse(window.sessionStorage.getItem('transactions'));
+                console.log("test accountfrom: " + document.getElementById("accountfrom").innerHTML);
 
+                if(document.getElementById("accountfrom").innerHTML.includes('Chequing')){
+                    console.log("i got here finally");
+                    var newchequingbalance = parseInt(chequingamount) - parseInt(withdrawamount);
+                    var newsavingsbalance = parseInt(savingsamount) + parseInt(withdrawamount);
+
+                    window.sessionStorage.setItem('chequingVal',newchequingbalance);
+                    window.sessionStorage.setItem('savingsVal',newsavingsbalance);
+
+                    var newTransfer = {
+                        action: "Transfer",
+                        account: "Chequing to Savings",
+                        amount: withdrawamount,
+                        balance: newchequingbalance+"(Chequing)" + +"  "+"$"+ newsavingsbalance + "(Savings)"
+                    }
+
+                }else{
+                    var newchequingbalance = parseInt(chequingamount) + parseInt(withdrawamount);
+                    var newsavingsbalance = parseInt(savingsamount) - parseInt(withdrawamount);
+
+                    window.sessionStorage.setItem('chequingVal',newchequingbalance);
+                    window.sessionStorage.setItem('savingsVal',newsavingsbalance);
+
+                    var newTransfer = {
+                        action: "Transfer",
+                        account: "Savings to Chequing",
+                        amount: withdrawamount,
+                        balance: newchequingbalance+"(Chequing)" +"  "+"$"+ newsavingsbalance + "(Savings)"
+                    }
+                }
+                transactions.push(newTransfer);
+                window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
                 window.location.href = "./transfer_success.html";
 
             }
