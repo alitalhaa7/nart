@@ -72,7 +72,7 @@
 
                 <td>
                     <div class="dropdown">
-                        <button onclick="myFunction()" style="width:250px;height:60px;" class="dropbtn"> <span id="dropdownselection"> Chequings </span> <span id="cheamount"></span> <img src="drop-down-arrow-01-512.png" width="20px;"></button>
+                        <button onclick="myFunction()" style="width:250px;height:60px;" class="dropbtn"> <span id="dropdownselection"> Chequing </span> <span id="cheamount"></span> <img src="drop-down-arrow-01-512.png" width="20px;"></button>
                         <div onclick="switchdropdownvalues()" id="myDropdown" class="dropdown-content">
                             <a href="#home"> <span id="dropdownalt">Savings </span> <span id="savamount"></span></a>
 
@@ -254,7 +254,7 @@
             if (x.className === "greenbutton") {
                 var transactions = JSON.parse(window.sessionStorage.getItem('transactions'));
                 console.log("greenbutton pressed");
-                if (dropdownselection.trim() === 'Chequings'){
+                if (dropdownselection.trim() === 'Chequing'){
                     console.log("dropdown equals chequings");
                     var newchequingbalance = parseInt(chequingamount) + parseInt(withdrawamount);
                     console.log(newchequingbalance);

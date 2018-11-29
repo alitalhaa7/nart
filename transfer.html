@@ -67,8 +67,7 @@
            <div id = "options">
         <h1 >TRANSFER</h1>
             </div>
-<br>
-<br>
+        <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="errorTransfer">Please Enter Valid Amount</p>
 
 
         <div id="withdraw-righthandside" style="float:left;border-right: 1px solid white;">
@@ -101,7 +100,7 @@
                     <td id="fifty" style="width:300px;height:100px;text-align:center;">
                         <span class="smallheading" style="font-family:arial;">TO:</span><br>
 
-                        <h1 id="toacc" style="color:white;font-size:30px;font-family:arial;">Chequings<span id="ToOptionVal"></span></h1>
+                        <h1 id="toacc" style="color:white;font-size:30px;font-family:arial;">Chequing<span id="ToOptionVal"></span></h1>
                     </td>
                 </tr>
 
@@ -191,7 +190,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h1> <br> Transfer <span id="withdrawamount"></span> from <span id="accountfrom"></span> into <span id="accountto"></span>? </h1>
+            <h1> <br> Transfer <span id="withdrawamount"></span> from <span id="accountfrom"></span> to <span id="accountto"></span>? </h1>
             <br>
             <button onclick="closeModal(this)" class="greenbutton" style="display:inline">YES</button>
             <button onclick="closeModal(this)" class="redbutton" style="display:inline">NO</button>
@@ -261,7 +260,9 @@
 
 
         function withdrawamountinput(x) {
-
+            if (!document.getElementById('withdrawinput').value && document.getElementById('withdrawinput').value !=='0' ){
+                document.getElementById("errorTransfer").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            }
             if (withdrawamount.length < 5) {
                 withdrawamount += x.innerHTML;
                 document.getElementById('withdrawinput').value = withdrawamount;
@@ -270,27 +271,35 @@
 
         function deleteone() {
             withdrawamount = withdrawamount.slice(0, -1);
+            
+            if (!document.getElementById('withdrawinput').innerHTML){
+                document.getElementById("errorTransfer").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+
+            }
             document.getElementById('withdrawinput').value = withdrawamount;
 
         }
 
         function deleteall() {
             withdrawamount = "";
+            document.getElementById("errorTransfer").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
             document.getElementById('withdrawinput').value = withdrawamount;
 
         }
 
         function withdrawfunc() {
+            if(withdrawamount && withdrawamount !== '0' && withdrawamount !== '00' && withdrawamount !== '000' && withdrawamount !== '0000' && withdrawamount !== '00000'){
 
-            modal.style.display = "block";
+                modal.style.display = "block";
 
-            document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
+                document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
 
-            document.getElementById("accountfrom").innerHTML = document.getElementById("fromacc").innerHTML;
-            document.getElementById("accountto").innerHTML = document.getElementById("toacc").innerHTML;
+                document.getElementById("accountfrom").innerHTML = document.getElementById("fromacc").innerHTML.substring(0,document.getElementById("fromacc").innerHTML.indexOf(' $'));
+                document.getElementById("accountto").innerHTML = document.getElementById("toacc").innerHTML.substring(0,document.getElementById("toacc").innerHTML.indexOf(' $'));;
 
-
-
+            }else if (!withdrawamount || withdrawamount === '0'|| withdrawamount !== '00' || withdrawamount !== '000' || withdrawamount !== '0000' || withdrawamount !== '00000'){
+                document.getElementById("errorTransfer").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            }
 
 
 
@@ -331,6 +340,9 @@
 
         }
 
+         
+        document.getElementById("ToOptionVal").innerHTML = " $" + chequingamount;
+        document.getElementById("FromOptionVal").innerHTML = " $" + savingsamount;
     </script>
 
 </body>
