@@ -3,6 +3,8 @@
 
 <head>
     <title>Assignment 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -17,10 +19,14 @@
             <h2 style="display:inline-block;">Please Insert or Swipe Card</h2>
 
             <img id="rightarrow" src="arrow-right.png">
+            <br>
+                    <img style="display:inline; " width="100px;" src="insert-card.png"> <img width="100px;" src="swipecard.png">
+
         </div>
 
         <!--   <input id="entercard" type="text" placeholder="Manually Enter Card Number"></input>-->
         <button onclick="goto('./accountnumber.html')" id="entercard" style="width:200px;">Manually Enter Card Number</button>
+        <br>
 
 
     </div>
@@ -63,6 +69,12 @@
         var chequings = getParameterByName('chequings'); // "" (present with empty value)
         var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
 
+        $(document).keydown(function(event) { //Press M for swiping card
+            if (event.which === 77) {
+                window.location.href = "./pinnumber.html";
+
+            }
+        });
     </script>
 
 </body>
