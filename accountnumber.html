@@ -5,6 +5,7 @@
     <title>Assignment 2</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
 </head>
 
 
@@ -119,7 +120,9 @@
         function submit() {
             var correctcard = window.sessionStorage.getItem('cardvalue');
             console.log(correctcard);
-            if (accnumber === correctcard) {
+            if (accnumber === correctcard && window.sessionStorage.getItem("lockedout") === "true" ){
+                window.location.href = './lockedout.html';
+            }else if (accnumber === correctcard){
                 window.location.href = './pinnumber.html';
             } else {
                 document.getElementById("incorrectmessage").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c"
@@ -128,9 +131,13 @@
             }
         }
         
-        function goto(x){
+        function goto(x) {
+        
             window.location.href = x;
+    
         }
+
+     
 
     </script>
 

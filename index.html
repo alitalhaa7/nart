@@ -50,16 +50,32 @@
                
             }
         function goto(x) {
+            console.log(window.sessionStorage.getItem("lockedout") === "true");
+            console.log(window.sessionStorage.getItem("lockedout"));
+           
             window.location.href = x;
-
+            
         }
         
         $(document).keydown(function(event) { //Press M for swiping card
             if (event.which === 77) {
-                window.location.href = "./pinnumber.html";
+                if(window.sessionStorage.getItem("lockedout") === "true"){
+                    window.location.href = './lockedout.html';
+                }else{
+                    window.location.href = "./pinnumber.html";
+                }
 
             }
         });
+
+        $(document).keydown(function(event) { //Press U for unlocking accounts
+            if (event.which === 85) {
+                if(window.sessionStorage.getItem("lockedout") === "true"){
+                    window.sessionStorage.setItem("lockedout","false");
+                }
+            }
+        });
+
     </script>
 
 

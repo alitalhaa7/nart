@@ -13,7 +13,7 @@
     <div id="successlock">
         <table class="navtable">
             <tr>
-                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
+                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;text-decoration: underline"> &#8249;BACK</td>
             </tr>
         </table>
         <br>
@@ -32,6 +32,7 @@
 
    <script>
         function backhome() {
+            window.sessionStorage.setItem("lockedout","true");
             window.location.href = "./index.html";
 
         }
