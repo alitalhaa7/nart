@@ -3,82 +3,63 @@
 
 <head>
     <title>Assignment 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 
 <body>
-    <div id="main">
+     <div id="main">
         <br>
         <h1>WELCOME TO THE BANK OF NART</h1>
         <div id="secondheading">
             <h2 style="display:inline-block;">Please Insert or Swipe Card</h2>
 
             <img id="rightarrow" src="arrow-right.png">
+            <br>
+                    <img style="display:inline; " width="100px;" src="insert-card.png"> <img width="100px;" src="swipecard.png">
+
         </div>
 
         <!--   <input id="entercard" type="text" placeholder="Manually Enter Card Number"></input>-->
-        <a href="accountnumber.html">
-            <button onclick="setvariables()"id="entercard" style="width:200px;">Manually Enter Card Number</button>
-        </a>
+        <button onclick="goto('./accountnumber.html')" id="entercard" style="width:200px;">Manually Enter Card Number</button>
+        <br>
+
 
     </div>
 
 
 
     <script>
-        function setvariables(){
+            console.log(sessionStorage.getItem("pinvalue"));
+            console.log(sessionStorage.getItem("cardvalue"));
+
             if (sessionStorage.getItem("pinvalue") === null || sessionStorage.getItem("cardvalue") === null) {
                 window.sessionStorage.setItem("pinvalue","1234");
                 window.sessionStorage.setItem("cardvalue","1234567890");
                 window.sessionStorage.setItem("chequingVal","1000");
                 window.sessionStorage.setItem("savingsVal","1500");
-                const transactions = [{
-                    time: "2018/11/28",
-                    action: "Withdraw",
-                    account: "Chequing",
-                    amount: "$20",
-                    balance:"$980"
-                },{
-                    time: "2018/11/28",
-                    action: "Deposit",
-                    account: "Chequing",
-                    amount: "$20",
-                    balance:"$1000"
-                },{
-                    time: "2018/11/28",
-                    action: "Transfer",
-                    account: "Chequing to Savings",
-                    amount: "$20",
-                    balance:"$980"
-                }];
+  
+                const transactions = [];
                 window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
             }else{
-
-                const transactions = [{
-                    time: "2018/11/28",
-                    action: "Withdraw",
-                    account: "Chequing",
-                    amount: "$20",
-                    balance:"$980"
-                },{
-                    time: "2018/11/28",
-                    action: "Deposit",
-                    account: "Chequing",
-                    amount: "$20",
-                    balance:"$1000"
-                },{
-                    time: "2018/11/28",
-                    action: "Transfer",
-                    account: "Chequing to Savings",
-                    amount: "$20",
-                    balance:"$980"
-                }];
+                const transactions = [];
                 window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
+               
             }
+        function goto(x) {
+            window.location.href = x;
+
         }
         
+        $(document).keydown(function(event) { //Press M for swiping card
+            if (event.which === 77) {
+                window.location.href = "./pinnumber.html";
+
+            }
+        });
     </script>
 
 

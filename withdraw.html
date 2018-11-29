@@ -4,132 +4,188 @@
 <head>
     <title>Assignment 2</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 
 <body>
+    <style>
+        .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+        .bluebutton{
+            height:60px;
+        }
 
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
     <div id="success">
 
         <table class="navtable">
             <tr>
 
-                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
-                <td style="width:20%;text-align:right;font-size:15px;font-family: Arial;"> SIGN OUT</td>
+                <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> <a style="text-decoration:underline;color:white;" href="./success.html">&#8249;NART</a></td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./endsession.html"> SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
         </table>
-
-
+        <div id = "options">
+        <h1 >WITHDRAW</h1>
+            </div>
         <table class="navtable">
             <tr>
 
-                <td style="width:40%;text-align:left;"> <button class="redbutton">RETURN </button>
-                </td>
-                <td style="width:40%;text-align:left;"> CHEQUING $1000
+                <td>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" style="width:250px;height:60px;" class="dropbtn"> <span id="dropdownselection"> Chequings </span> <span id="cheamount"></span> <img src="drop-down-arrow-01-512.png" width="20px;"></button>
+                        <div onclick="switchdropdownvalues()" id="myDropdown" class="dropdown-content">
+                            <a href="#home"> <span id="dropdownalt">Savings </span> <span id="savamount"></span></a>
+
+                        </div>
+                    </div>
                 </td>
 
-                <td style="width:20%;text-align:right;font-size:15px;font-family: Arial;"> DOWN</td>
 
             </tr>
 
         </table>
+        
+        <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="error">Please Enter Valid Amount</p>
 
-        <!-- <h1>Choose Account: <select style="width:100px;height:30px;">
-                <option value="one">Savings</option>
-                <option value="two">Chequings</option>
-                <option value="three">Student Account</option>
-                <option value="four">Other</option>
-            </select></h1>-->
-        <div id="lefthandside" style="display:inline-block;align-items:stretch">
-            <table class="centertable">
+        <div id="withdraw-righthandside" style="float:left;border-right: 1px solid white;">
+
+
+
+
+            <h1 style=" font-size:20px;color:white;font-family:arial;margin-left:auto;margin-right:auto;">Quick Withdraw</h1>
+
+            <table style="margin-left:auto;margin-right:auto;">
                 <tr>
-                    <td>
-                        <h1 style="font-size:20px;"> Quick Withdraw</h1>
+                    <td id="twenty" onclick="moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="twenty.jpg" width="230px">
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="twenty.jpg" width="250px">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="fifty.jpg" width="250px">
+                    <td id="fifty" onclick=" moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="fifty.jpg" width="230px">
 
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="hunny.jpg" width="250px;">
+                    <td id="hunny" onclick="moneyClick(this)" style="width:300px;height:100px;text-align:center;">
+                        <img src="hunny.jpg" width="230px;">
 
                     </td>
 
                 </tr>
             </table>
 
+
+
         </div>
-        <div id="righthandside">
-            <input type="text" id="withdrawinput">
+
+        <br>
+        <div id="withdraw-righthandside">
+            <h1 style=" font-size:20px;color:white;font-family:arial;margin-left:auto;margin-right:auto;">Custom Input</h1>
+
+            <input type="text" id="withdrawinput" style="margin-left:auto;margin-right:auto; font-size:40px;">
             <table style="margin-left:auto;margin-right:auto;">
                 <tr>
                     <td>
-                        <button class="bluebutton">1</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">1</button>
                     </td>
                     <td>
-                        <button class="bluebutton">2</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">2</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">3</button>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="bluebutton">4</button>
-                    </td>
-                    <td>
-                        <button class="bluebutton">5</button>
-
-                    </td>
-                    <td>
-                        <button class="bluebutton">6</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">3</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">7</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">4</button>
                     </td>
                     <td>
-                        <button class="bluebutton">8</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">5</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">9</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">6</button>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="bluebutton">
-                            <</button> </td> <td>
-                                <button class="bluebutton">0</button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">7</button>
+                    </td>
+                    <td>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">8</button>
 
                     </td>
                     <td>
-                        <button class="bluebutton">></button>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">9</button>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="deleteall()" class="bluebutton" style="background-color: orange">Reset
+                            <br>
+                            <img src="clear.png" style=" width:30%">
+
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="withdrawamountinput(this)" class="bluebutton">0</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteone()" class="bluebutton" style="background-color: red">Delete
+                            <br>
+                            <img src="backspace.png" style=" width:30%">
+                        </button>
                     </td>
                 </tr>
             </table>
 
-        </div>
-        <button id="withdraw" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;">WITHDRAW</button>
 
+        </div>
+
+        <button onclick="withdrawfunc()" style="width:100%;height:75px;background-color:#42f474;font-size:20px;text-align:center;font-family:Arial;color:white.font-weight:bold;bottom:0;position:absolute;left:0">WITHDRAW</button>
 
     </div>
 
@@ -143,14 +199,226 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h1>Chequing <br> Withdraw $50? </h1>
             <br>
-            <button class="greenbutton" style="display:inline"> YES </button>
-            <button class="redbutton" style="display:inline"> NO </button>
+            <br>
+            <br>
+            <h1> Withdraw <span id="withdrawamount"></span> from <span id="accountvar"></span>? </h1>
+            <br>
+            <button onclick="closeModal(this)" class="greenbutton" style="display:inline"> YES </button>
+            <button onclick="closeModal(this)" class="redbutton" style="display:inline"> NO </button>
 
         </div>
 
     </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        var withdrawamount = "";
+        var modal = document.getElementById('myModal');
+        var chequingamount = window.sessionStorage.getItem('chequingVal');
+        var savingsamount = window.sessionStorage.getItem('savingsVal');
+        // Get the button that opens the modal
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+
+
+
+
+        function closeModal(x) {
+            var dropdownselection = document.getElementById('dropdownselection').innerHTML;
+            console.log(dropdownselection);
+            if (x.className === "greenbutton") {
+                var transactions = JSON.parse(window.sessionStorage.getItem('transactions'));
+                console.log("greenbutton pressed");
+                if (dropdownselection.trim() === 'Chequings'){
+                    console.log("dropdown equals chequings");
+                    var newchequingbalance = chequingamount - withdrawamount;
+                    console.log(newchequingbalance);
+                    window.sessionStorage.setItem('chequingVal',newchequingbalance);
+
+                    var newWithdrawl = {
+                        action: "Withdraw",
+                        account: "Chequing",
+                        amount: withdrawamount,
+                        balance: newchequingbalance
+                    }
+                    transactions.push(newWithdrawl);
+                    window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
+
+
+                }else{
+                    console.log("dropdown equals savings");
+                    var newsavingsbalance = savingsamount - withdrawamount;
+                    window.sessionStorage.setItem('savingsVal',newsavingsbalance);
+                
+                    var newWithdrawl = {
+                        action: "Withdraw",
+                        account: "Savings",
+                        amount: withdrawamount,
+                        balance: newsavingsbalance
+                    }
+                    transactions.push(newWithdrawl);
+                    window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
+
+
+                }
+               window.location.href = "./withdraw_success.html";
+            }else if (this.class = "redbutton"){
+                console.log("redbutton pressed")
+            }
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        // var savingsamount = getParameterByName('savings'); // "lorem"
+        // var chequingsamount = getParameterByName('chequings'); // "" (present with empty value)
+        // var accounttype = getParameterByName("accounttype");
+        // var correctpin = getParameterByName('correctpin'); // "" (present with empty value)
+
+
+
+
+        function moneyClick(x) {
+            document.getElementById('withdrawinput').value = "";
+            document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+
+            document.getElementById("twenty").style.backgroundColor = "#224191";
+            document.getElementById("fifty").style.backgroundColor = "#224191";
+            document.getElementById("hunny").style.backgroundColor = "#224191";
+            x.style.backgroundColor = "#30b0e6";
+
+            
+            switch (x.id) {
+                case "twenty":
+                    withdrawamount = "20";
+                    break;
+                case "fifty":
+                    withdrawamount = "50";
+                    break;
+                case "hunny":
+                    withdrawamount = "100";
+                    break;
+            }
+
+            console.log(withdrawamount);
+        }
+
+
+        function withdrawamountinput(x) {
+            if (document.getElementById("twenty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("fifty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("hunny").style.backgroundColor === "rgb(48, 176, 230)") {
+                withdrawamount = "";
+            }
+            if (!document.getElementById('withdrawinput').value && document.getElementById('withdrawinput').value !=='0' ){
+                document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            }
+            console.log(document.getElementById("twenty").style.backgroundColor);
+            document.getElementById("twenty").style.backgroundColor = "#224191";
+            document.getElementById("fifty").style.backgroundColor = "#224191";
+            document.getElementById("hunny").style.backgroundColor = "#224191";
+            if (withdrawamount.length < 5) {
+                withdrawamount += x.innerHTML;
+                document.getElementById('withdrawinput').value = withdrawamount;
+            }
+        }
+
+        function deleteone() {
+            withdrawamount = withdrawamount.slice(0, -1);
+            
+            if (!document.getElementById('withdrawinput').innerHTML){
+                document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+
+            }
+            document.getElementById('withdrawinput').value = withdrawamount;
+
+        }
+
+        function deleteall() {
+            withdrawamount = "";
+            document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            document.getElementById('withdrawinput').value = withdrawamount;
+
+        }
+
+        function withdrawfunc() {
+            console.log(withdrawamount);
+            if(withdrawamount && withdrawamount !== '0' && withdrawamount !== '00' && withdrawamount !== '000' && withdrawamount !== '0000' && withdrawamount !== '00000'){
+                modal.style.display = "block";
+                
+                document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
+                document.getElementById("accountvar").innerHTML = document.getElementById("dropdownselection").innerHTML;
+
+            }else if (!withdrawamount || withdrawamount === '0'|| withdrawamount !== '00' || withdrawamount !== '000' || withdrawamount !== '0000' || withdrawamount !== '00000'){
+                document.getElementById("error").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
+            }
+            // if (accounttype) {
+            //     document.getElementById("accountvar").innerHTML = "Chequings";
+
+            // } else {
+            //     document.getElementById("accountvar").innerHTML = "Savings";
+
+            // }
+
+
+
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+ 
+        document.getElementById("cheamount").innerHTML = "$" + chequingamount;
+        document.getElementById("savamount").innerHTML = "$" + savingsamount;
+
+        function switchdropdownvalues() {
+            var x = document.getElementById("dropdownalt").innerHTML;
+            document.getElementById("dropdownalt").innerHTML = document.getElementById("dropdownselection").innerHTML;
+            document.getElementById("dropdownselection").innerHTML = x;
+
+        }
+
+    </script>
 
 </body>
 

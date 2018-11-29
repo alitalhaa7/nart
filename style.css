@@ -10,7 +10,8 @@ body {
 #main,
 #successlock,
 #accountnumbermain,
-#changepin_entercurrent {
+#changepin_entercurrent,
+#options {
 
     width: 100%;
     min-height: 100%;
@@ -33,6 +34,7 @@ body {
 
 #accountnumbermain,
 #changepin_entercurrent,
+#options,
 #success {
     text-align: center;
 }
@@ -96,6 +98,7 @@ input{
     font-size: 20px;
     font-family: Arial;
     border-spacing: 15px;
+    width: 70%;
 
 
 
@@ -108,8 +111,8 @@ input{
 #lefthandside {
     float: left;
     text-align: center;
-    width: 25%;
-    height: 100%;
+    width: 30%;
+    min-height: 100%;
     color: white;
     font-family: arial;
     display: flex;
@@ -120,8 +123,28 @@ input{
 }
 
 
+#withdraw-lefthandside {
+    float: left;
+    text-align: center;
+    width: 50%;
+    min-height: 100%;
+    color: white;
+    font-family: arial;
+    display: flex;
+    align-items: center;
+    background-color: #224191;
+    margin-top: 100px;
+}
+#withdraw-righthandside {
+	float: right;
+    width: 49%;
+    min-height: 100%;
+    background-color: #224191;
+
+    }
+
 #optionstable tr {
-    height: 220px;
+    height: 150px;
 }
 
 #optionstable tr td {
@@ -134,7 +157,8 @@ input{
 #successlock h1,
 #accountinput h1,
 #accountnumbermain h1,
-#changepin_entercurrent h1{
+#changepin_entercurrent h1,
+#options h1{
     text-align: center;
     font-family: arial;
     font-size: 60px;
@@ -235,8 +259,8 @@ button {
 
 #righthandside {
     float: right;
-    width: 75%;
-    height: 100%;
+    width: 70%;
+    min-height: 100%;
     background-color: #224191;
 
 }

@@ -16,18 +16,12 @@
             <tr>
 
                 <td style="width:80%;text-align:left;font-size:30px;font-weight:bold;font-family: Verdana;"> NART</td>
-                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./endsession.html">END SESSION <img src="signout.png" width="25px"> </a></td>
+                <td style="width:20%;text-align:right;"><a style="text-decoration:none; font-size:15px;font-family: Arial; color:white;" href="./endsession.html">SIGN OUT <img src="signout.png" width="25px"> </a></td>
 
             </tr>
 
         </table>
 
-        <!-- <h1>Choose Account: <select style="width:100px;height:30px;">
-                <option value="one">Savings</option>
-                <option value="two">Chequings</option>
-                <option value="three">Student Account</option>
-                <option value="four">Other</option>
-            </select></h1>-->
         <div id="lefthandside">
             <table class="centertable">
                 <tr>
@@ -35,16 +29,24 @@
                         <h1> <span class="smallheading">Welcome</span> <br>John Peng </h1>
                     </td>
                 </tr>
+
+	            <tr>
+	                <td id="chooseaccount">
+	                    <h1>
+                        <span class="smallheading">Choose an account:</span>
+                        <br>
+                        </h1>
+                    </td>
+
                 <tr>
-                    <td>
-                        <span class="smallheading">Chequings</span>
-                         <br>
+                    <td onclick="accountSelection(this)" id="chequings">
+                    <span class="smallheading" id="chequingsheading">Chequing</span>                         <br>
                         <h1 id = "chequingBalance"></h1>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <span class="smallheading">Savings</span>
+                    <td onclick="accountSelection(this)" id="savings">
+                        <span class="smallheading" id="savingsheading">Savings</span>
                          <br> 
                         <h1 id = "savingsBalance"></h1>
 
@@ -55,14 +57,25 @@
 
         </div>
         <div id="righthandside">
-            <table id="optionstable" class="centertable">
+            <br>
+            <br>
+            <br>
+            <br>
+            <table id="optionstable" class="centertable" style="padding:0;">
                 <tr>
-                    <td onclick="goto('./withdraw.html')">WITHDRAW <br><img src="withdraw.png" width="50px;"> </td>
+                    <td style="width:100%;" onclick="goto('./withdraw.html')">WITHDRAW <br><img src="withdraw.png" width="50px;"> </td>
 
-                    <td>DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
+                </tr>
+            </table>
+            <table id="optionstable" class="centertable">
+                
+                    <td onclick="goto('./deposit.html')">DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
+
+                    <td onclick="goto('./transfer.html')">TRANSFER <br> <img src="transfer.png" width="50px;"></td>
+                </tr>
                 </tr>
                 <tr>
-                    <td onclick="goto('./sessionHistory.html')">SESSION HISTORY <img src="history.png" width="50px;"></td>
+                   <td onclick="goto('./sessionHistory.html')">SESSION HISTORY <br><img src="history.png" width="50px;"></td>
                     <td onclick="goto('./changepin.html')">CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
                 </tr>
 
@@ -97,6 +110,21 @@
 
         function goto(x) {
             window.location.href = x;
+
+        }
+
+          function accountSelection(x) {
+            document.getElementById("chequings").style.backgroundColor = "#224191";
+            document.getElementById("savings").style.backgroundColor = "#224191";
+            x.style.backgroundColor = "#30b0e6";
+            x.style.color = "white";
+
+            if (x.id === "chequings") {
+                document.getElementById("chequingsheading").style.color = "white";
+            } else if (x.id === "savings") {
+                document.getElementById("savingsheading").style.color = "white";
+                document.getElementById("chequingsheading").style.color = "#30b0e6";
+            }
 
         }
     </script>
