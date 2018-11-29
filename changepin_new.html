@@ -126,7 +126,7 @@
                 document.getElementById("incorrectpin").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
                 deleteall();
             } else
-                window.localStorage.setItem("pinvalue_change",pin);
+                window.sessionStorage.setItem("pinvalue_change",pin);
                 window.location.href = "./changepin_newconfirm.html";
 
         }

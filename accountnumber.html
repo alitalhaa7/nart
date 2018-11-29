@@ -118,7 +118,7 @@
         }
 
         function submit() {
-            var correctcard = window.localStorage.getItem('cardvalue');
+            var correctcard = window.sessionStorage.getItem('cardvalue');
             console.log(correctcard);
             if (accnumber === correctcard) {
                 window.location.href = './pinnumber.html';

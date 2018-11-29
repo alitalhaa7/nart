@@ -37,14 +37,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <h1>
-                            <span class="smallheading">Chequings</span><br>
-                            $15000</h1>
+                        <span class="smallheading">Chequings</span>
+                         <br>
+                        <h1 id = "chequingBalance"></h1>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h1> <span class="smallheading">Savings</span> <br> $1200</h1>
+                        <span class="smallheading">Savings</span>
+                         <br> 
+                        <h1 id = "savingsBalance"></h1>
 
                     </td>
 
@@ -60,7 +62,7 @@
                     <td>DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
                 </tr>
                 <tr>
-                    <td>TRANSFER HISTORY <img src="history.png" width="50px;"></td>
+                    <td onclick="goto('./sessionHistory.html')">SESSION HISTORY <img src="history.png" width="50px;"></td>
                     <td onclick="goto('./changepin.html')">CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
                 </tr>
 
@@ -87,6 +89,12 @@
     </div>
 
     <script>
+        var chequingBalance = window.sessionStorage.getItem('chequingVal');
+        var savingsBalance = window.sessionStorage.getItem('savingsVal');
+
+        document.getElementById("chequingBalance").innerHTML = '$'+chequingBalance;
+        document.getElementById("savingsBalance").innerHTML = '$'+ savingsBalance;
+
         function goto(x) {
             window.location.href = x;
 

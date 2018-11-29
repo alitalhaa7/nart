@@ -29,11 +29,53 @@
 
     <script>
         function setvariables(){
-            if (localStorage.getItem("pinvalue") === null || localStorage.getItem("cardvalue") === null) {
-                window.localStorage.setItem("pinvalue","1234");
-                window.localStorage.setItem("cardvalue","1234567890");
+            if (sessionStorage.getItem("pinvalue") === null || sessionStorage.getItem("cardvalue") === null) {
+                window.sessionStorage.setItem("pinvalue","1234");
+                window.sessionStorage.setItem("cardvalue","1234567890");
+                window.sessionStorage.setItem("chequingVal","1000");
+                window.sessionStorage.setItem("savingsVal","1500");
+                const transactions = [{
+                    time: "2018/11/28",
+                    action: "Withdraw",
+                    account: "Chequing",
+                    amount: "$20",
+                    balance:"$980"
+                },{
+                    time: "2018/11/28",
+                    action: "Deposit",
+                    account: "Chequing",
+                    amount: "$20",
+                    balance:"$1000"
+                },{
+                    time: "2018/11/28",
+                    action: "Transfer",
+                    account: "Chequing to Savings",
+                    amount: "$20",
+                    balance:"$980"
+                }];
+                window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
             }else{
 
+                const transactions = [{
+                    time: "2018/11/28",
+                    action: "Withdraw",
+                    account: "Chequing",
+                    amount: "$20",
+                    balance:"$980"
+                },{
+                    time: "2018/11/28",
+                    action: "Deposit",
+                    account: "Chequing",
+                    amount: "$20",
+                    balance:"$1000"
+                },{
+                    time: "2018/11/28",
+                    action: "Transfer",
+                    account: "Chequing to Savings",
+                    amount: "$20",
+                    balance:"$980"
+                }];
+                window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
             }
         }
         
