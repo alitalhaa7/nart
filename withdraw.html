@@ -407,7 +407,6 @@
             }
         }
 
-
         document.getElementById("cheamount").innerHTML = "$" + chequingamount;
         document.getElementById("savamount").innerHTML = "$" + savingsamount;
 
@@ -418,23 +417,31 @@
 
         }
 
-        /* function getParameterByName(name, url) {
-             if (!url) url = window.location.href;
-             name = name.replace(/[\[\]]/g, '\\$&');
-             var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                 results = regex.exec(url);
-             if (!results) return null;
-             if (!results[2]) return '';
-             return decodeURIComponent(results[2].replace(/\+/g, ' '));
-         }
 
-         var def = getParameterByName("default");
-         if (def === "true") {
-             document.getElementById("fifty").style.backgroundColor = "#30b0e6";
-             withdrawamount = "50";
+        function switchdropdownvalues() {
+            var x = document.getElementById("dropdownalt").innerHTML;
+            document.getElementById("dropdownalt").innerHTML = document.getElementById("dropdownselection").innerHTML;
+            document.getElementById("dropdownselection").innerHTML = x;
+
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var def = getParameterByName("default");
+        if (def === "true") {
+            document.getElementById("fifty").style.backgroundColor = "#30b0e6";
+            withdrawamount = "50";
 
 
-         }/.
+        }
     </script>
 
 </body>
