@@ -30,25 +30,25 @@
                     </td>
                 </tr>
 
-	            <tr>
-	                <td id="chooseaccount">
-	                    <h1>
-                        <span class="smallheading">Choose an account:</span>
-                        <br>
+                <tr>
+                    <td id="chooseaccount">
+                        <h1>
+                            <span class="smallheading">Choose an account:</span>
+                            <br>
                         </h1>
                     </td>
 
                 <tr>
                     <td onclick="accountSelection(this)" id="chequings">
-                    <span class="smallheading" id="chequingsheading">Chequing</span>                         <br>
-                        <h1 id = "chequingBalance"></h1>
+                        <span class="smallheading" id="chequingsheading">Chequing</span> <br>
+                        <h1 id="chequingBalance"></h1>
                     </td>
                 </tr>
                 <tr>
                     <td onclick="accountSelection(this)" id="savings">
                         <span class="smallheading" id="savingsheading">Savings</span>
-                         <br> 
-                        <h1 id = "savingsBalance"></h1>
+                        <br>
+                        <h1 id="savingsBalance"></h1>
 
                     </td>
 
@@ -68,14 +68,14 @@
                 </tr>
             </table>
             <table id="optionstable" class="centertable">
-                
-                    <td onclick="goto('./deposit.html')">DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
 
-                    <td onclick="goto('./transfer.html')">TRANSFER <br> <img src="transfer.png" width="50px;"></td>
+                <td onclick="goto('./deposit.html')">DEPOSIT <br> <img src="deposit.png" width="50px;"></td>
+
+                <td onclick="goto('./transfer.html')">TRANSFER <br> <img src="transfer.png" width="50px;"></td>
                 </tr>
                 </tr>
                 <tr>
-                   <td onclick="goto('./sessionHistory.html')">SESSION HISTORY <br><img src="history.png" width="50px;"></td>
+                    <td onclick="goto('./sessionHistory.html')">SESSION HISTORY <br><img src="history.png" width="50px;"></td>
                     <td onclick="goto('./changepin.html')">CHANGE PIN <br> <img src="pin.png" width="60px;"></td>
                 </tr>
 
@@ -88,7 +88,7 @@
                     </td>
                 </tr>
                 <tr style="height:60px;background-color:#ed116c" class="suggestionsrow">
-                    <td>
+                    <td onclick="goto('./withdraw.html?default=true')">
                         <button class="redbutton" style="width:200px; height:50px; margin:0;text-align:left;">$50</button>
                         <button class="redbutton" style="width:200px; height:50px;text-align:right;">Quick Draw</button> </td>
                 </tr>
@@ -105,15 +105,15 @@
         var chequingBalance = window.sessionStorage.getItem('chequingVal');
         var savingsBalance = window.sessionStorage.getItem('savingsVal');
 
-        document.getElementById("chequingBalance").innerHTML = '$'+chequingBalance;
-        document.getElementById("savingsBalance").innerHTML = '$'+ savingsBalance;
+        document.getElementById("chequingBalance").innerHTML = '$' + chequingBalance;
+        document.getElementById("savingsBalance").innerHTML = '$' + savingsBalance;
 
         function goto(x) {
             window.location.href = x;
 
         }
 
-          function accountSelection(x) {
+        function accountSelection(x) {
             document.getElementById("chequings").style.backgroundColor = "#224191";
             document.getElementById("savings").style.backgroundColor = "#224191";
             x.style.backgroundColor = "#30b0e6";
@@ -127,6 +127,7 @@
             }
 
         }
+
     </script>
 </body>
 

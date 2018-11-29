@@ -62,9 +62,9 @@
             </tr>
 
         </table>
-        <div id = "options">
-        <h1 >WITHDRAW</h1>
-            </div>
+        <div id="options">
+            <h1>WITHDRAW</h1>
+        </div>
         <table class="navtable">
             <tr>
 
@@ -82,7 +82,7 @@
             </tr>
 
         </table>
-        
+
         <p style="visibility:hidden;color:white;font-family:Arial;font-weight:bold;;font-size:30px;width:600px;margin-left:auto;margin-right:auto;background-color:#ed116c" id="error">Please Enter Valid Amount</p>
 
         <div id="withdraw-righthandside" style="float:left;border-right: 1px solid white;">
@@ -241,11 +241,11 @@
             if (x.className === "greenbutton") {
                 var transactions = JSON.parse(window.sessionStorage.getItem('transactions'));
                 console.log("greenbutton pressed");
-                if (dropdownselection.trim() === 'Chequing'){
+                if (dropdownselection.trim() === 'Chequing') {
                     console.log("dropdown equals chequings");
                     var newchequingbalance = chequingamount - withdrawamount;
                     console.log(newchequingbalance);
-                    window.sessionStorage.setItem('chequingVal',newchequingbalance);
+                    window.sessionStorage.setItem('chequingVal', newchequingbalance);
 
                     var newWithdrawl = {
                         action: "Withdraw",
@@ -257,11 +257,11 @@
                     window.sessionStorage.setItem("transactions", JSON.stringify(transactions));
 
 
-                }else{
+                } else {
                     console.log("dropdown equals savings");
                     var newsavingsbalance = savingsamount - withdrawamount;
-                    window.sessionStorage.setItem('savingsVal',newsavingsbalance);
-                
+                    window.sessionStorage.setItem('savingsVal', newsavingsbalance);
+
                     var newWithdrawl = {
                         action: "Withdraw",
                         account: "Savings",
@@ -273,8 +273,8 @@
 
 
                 }
-               window.location.href = "./withdraw_success.html";
-            }else if (this.class = "redbutton"){
+                window.location.href = "./withdraw_success.html";
+            } else if (this.class = "redbutton") {
                 console.log("redbutton pressed")
             }
             modal.style.display = "none";
@@ -313,7 +313,7 @@
             document.getElementById("hunny").style.backgroundColor = "#224191";
             x.style.backgroundColor = "#30b0e6";
 
-            
+
             switch (x.id) {
                 case "twenty":
                     withdrawamount = "20";
@@ -334,7 +334,7 @@
             if (document.getElementById("twenty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("fifty").style.backgroundColor === "rgb(48, 176, 230)" || document.getElementById("hunny").style.backgroundColor === "rgb(48, 176, 230)") {
                 withdrawamount = "";
             }
-            if (!document.getElementById('withdrawinput').value && document.getElementById('withdrawinput').value !=='0' ){
+            if (!document.getElementById('withdrawinput').value && document.getElementById('withdrawinput').value !== '0') {
                 document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
             }
             console.log(document.getElementById("twenty").style.backgroundColor);
@@ -349,8 +349,8 @@
 
         function deleteone() {
             withdrawamount = withdrawamount.slice(0, -1);
-            
-            if (!document.getElementById('withdrawinput').innerHTML){
+
+            if (!document.getElementById('withdrawinput').innerHTML) {
                 document.getElementById("error").style = "visibility:hidden;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
 
             }
@@ -367,13 +367,13 @@
 
         function withdrawfunc() {
             console.log(withdrawamount);
-            if(withdrawamount && withdrawamount !== '0' && withdrawamount !== '00' && withdrawamount !== '000' && withdrawamount !== '0000' && withdrawamount !== '00000'){
+            if (withdrawamount && withdrawamount !== '0' && withdrawamount !== '00' && withdrawamount !== '000' && withdrawamount !== '0000' && withdrawamount !== '00000') {
                 modal.style.display = "block";
-                
+
                 document.getElementById("withdrawamount").innerHTML = "$" + withdrawamount;
                 document.getElementById("accountvar").innerHTML = document.getElementById("dropdownselection").innerHTML;
 
-            }else if (!withdrawamount || withdrawamount === '0'|| withdrawamount !== '00' || withdrawamount !== '000' || withdrawamount !== '0000' || withdrawamount !== '00000'){
+            } else if (!withdrawamount || withdrawamount === '0' || withdrawamount !== '00' || withdrawamount !== '000' || withdrawamount !== '0000' || withdrawamount !== '00000') {
                 document.getElementById("error").style = "visibility:visible;color:white;font-family:Arial;font-weight:bold;display:block;font-size:30px;width:500px;margin-left:auto;margin-right:auto;background-color:#ed116c";
             }
             // if (accounttype) {
@@ -407,7 +407,7 @@
             }
         }
 
- 
+
         document.getElementById("cheamount").innerHTML = "$" + chequingamount;
         document.getElementById("savamount").innerHTML = "$" + savingsamount;
 
@@ -418,9 +418,27 @@
             console.log(y);
             document.getElementById("dropdownalt").innerHTML = document.getElementById("dropdownselection").innerHTML;
             document.getElementById("savamount").innerHTML = document.getElementById("cheamount").innerHTML;
-            
+
             document.getElementById("dropdownselection").innerHTML = x;
             document.getElementById("cheamount").innerHTML = y;
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var def = getParameterByName("default");
+        if (def === "true") {
+            document.getElementById("fifty").style.backgroundColor = "#30b0e6";
+            withdrawamount = "50";
+
+
         }
 
     </script>
